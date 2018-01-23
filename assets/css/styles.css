@@ -1,6 +1,22 @@
-#image-container .card-container {
-    /* width: 200px; */
-    /* display: inline-block; */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: black url("../images/background.jpg");
+    background-repeat: no-repeat;
+    color: white;
+}
+#image-container {
+}
+
+.card {
+    border-color: #444;
+} 
+
+.card-header {
+    background: gray;
+    color: white;
 }
 
 #image-container .card {
@@ -9,22 +25,40 @@
 
 p.doggening {
     margin-top: 0.5em;
+    margin-left: 0.5em;
     display: inline-block;
-    background: lightgray;
-    padding: 6px;
+    background: black;
+    color: white;
+    padding: 6px 1em;
     margin-bottom: 0px;
+    border-radius: 8px 8px 0 0;
+    line-height: 2;
 }
 
-hr.doggening {
-    margin: 0;
+#add-thing-container {
+    text-align: right;
+}
+#new-thing-box {
+    /* width: 300px; */
+    /* margin: 0.2em; */
+    /* display: inline; */
+    /* padding-top: 4px; */
+    /* padding-bottom: 4px; */
+}
+
+
+div.doggening {
     width: 100%;
-    height: 4px;
-    color: lightgray;
-    border: 0;
-    background: lightgray;
+    background: black;
+    min-height: 250px;
+    padding-top: 1em;
 }
-
 .search-button {
     background-color: #DEF;
+    border: #77C 1px solid;
+}
+
+.search-button:hover {
+    background-color: #b9c6d4;
     border: #77C 1px solid;
 }

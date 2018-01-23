@@ -45,6 +45,8 @@ $(document).ready(function () {
     var giftApp = {
         uiImageContainer: $("#image-container"),
         uiButtonContainer: $("#button-container"),
+        uiNewThingBox: $("#new-thing-box"),
+        uiAddThingButton: $("#add-thing"),
         buttonTexts: ["Corgi", "Husky", "Shiba Inu"],
 
         init: function () {
@@ -63,6 +65,14 @@ $(document).ready(function () {
                 img.attr("data-state", still ? "anim" : "still");
                 img.attr("src", still ? img.attr("data-src-anim"): img.attr("data-src-still"));
             });
+
+            this.uiAddThingButton.click(function(e) {
+                e.preventDefault();
+                var text = self.uiNewThingBox.val();
+                self.uiNewThingBox.val("");
+                self.buttonTexts.push(text);
+                self.createButtons();
+            });          
         },
 
         createButtons: function () {
@@ -81,7 +91,7 @@ $(document).ready(function () {
                 .attr("data-state", "still")
                 .addClass("result-image card-image-top img-fluid");
 
-            var rating = $("<div>").addClass("card-header").text("Rating: " + rating);
+            var rating = $("<div>").addClass("card-header").text("Rating: " + rating.toUpperCase());
             
             var card = $("<div>").addClass("card my-1 align-top");
             card.append(rating).append(img);
