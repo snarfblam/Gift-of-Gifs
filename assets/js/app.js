@@ -47,7 +47,7 @@ $(document).ready(function () {
         uiButtonContainer: $("#button-container"),
         uiNewThingBox: $("#new-thing-box"),
         uiAddThingButton: $("#add-thing"),
-        buttonTexts: ["Corgi", "Husky", "Shiba Inu"],
+        topics: ["Corgi", "Husky", "Shiba Inu"],
 
         init: function () {
             var self = this;
@@ -70,14 +70,14 @@ $(document).ready(function () {
                 e.preventDefault();
                 var text = self.uiNewThingBox.val();
                 self.uiNewThingBox.val("");
-                self.buttonTexts.push(text);
+                self.topics.push(text);
                 self.createButtons();
             });          
         },
 
         createButtons: function () {
             this.uiButtonContainer.empty();
-            this.buttonTexts.forEach(function (txt) {
+            this.topics.forEach(function (txt) {
                 var button = $("<button>").text(txt).addClass("search-button btn mx-1");
                 this.uiButtonContainer.append(button);
             }, this);
