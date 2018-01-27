@@ -47,7 +47,7 @@ $(document).ready(function () {
         uiButtonContainer: $("#button-container"),
         uiNewThingBox: $("#new-thing-box"),
         uiAddThingButton: $("#add-thing"),
-        topics: ["Corgi", "Husky", "Shiba Inu"],
+        topics: ["Corgi", "Husky", "Shiba Inu", "Black Lab", "Dachshund", "Beagle", "Akita", "Basset Hound", "Jack Russel Terrier", "Greyhound", "Foxhound", "Dalmatian"],
 
         init: function () {
             var self = this;
