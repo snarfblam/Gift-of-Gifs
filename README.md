@@ -2,7 +2,7 @@
 ----
 Doggo GIF finder: find GIFs of doggos.
 
-Usage: Click doggo buttons to find doggos. Use text box and "Add a Thing!" button to teach the software new doggos. Click the doggos to make them move. Click them again to stifle their excitement.
+Usage: Click doggo buttons to find doggos. Use text box and "Add a dog!" button to teach the software new doggos. Click the doggos to make them move. Click them again to stifle their excitement.
 
 Files:
  - /**assets** - Contains everything that isn't index.html
