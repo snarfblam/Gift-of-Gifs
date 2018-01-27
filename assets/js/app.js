@@ -70,10 +70,12 @@ $(document).ready(function () {
 
             this.uiAddThingButton.click(function (e) {
                 e.preventDefault();
-                var text = self.uiNewThingBox.val();
-                self.uiNewThingBox.val("");
-                self.topics.push(text);
-                self.createButtons();
+                var text = self.uiNewThingBox.val().trim();
+                if (text) {
+                    self.uiNewThingBox.val("");
+                    self.topics.push(text);
+                    self.createButtons();
+                }
             });
         },
 
