@@ -28,11 +28,11 @@ $(document).ready(function () {
             this.sendRequest(searchString, function (response) {
                 var data = response.data; // {images: {fixed_height_still, fixed_height}, rating}[]
 
-                jqOutputContainer.empty(); 
+                jqOutputContainer.empty();
 
                 data.forEach(function (image) {
                     var element = imgConstructor(
-                        image.images.fixed_height_still.url,  
+                        image.images.fixed_height_still.url,
                         image.images.fixed_height.url,
                         image.rating);
                     jqOutputContainer.prepend(element);
@@ -53,26 +53,28 @@ $(document).ready(function () {
             var self = this;
             this.createButtons();
             this.uiButtonContainer.on("click", ".search-button", function () {
-                var search = $(this).text();
-                giphyQuery.performSearch(search, self.uiImageContainer, self.imgConstructor);
+                var search = $(this).text().trim();
+                if (search) {
+                    giphyQuery.performSearch(search, self.uiImageContainer, self.imgConstructor);
+                }
             });
 
-            this.uiImageContainer.on("click", ".result-image", function() {
+            this.uiImageContainer.on("click", ".result-image", function () {
                 var img = $(this);
                 var state = img.attr("data-state");
                 var still = state == "still";
 
                 img.attr("data-state", still ? "anim" : "still");
-                img.attr("src", still ? img.attr("data-src-anim"): img.attr("data-src-still"));
+                img.attr("src", still ? img.attr("data-src-anim") : img.attr("data-src-still"));
             });
 
-            this.uiAddThingButton.click(function(e) {
+            this.uiAddThingButton.click(function (e) {
                 e.preventDefault();
                 var text = self.uiNewThingBox.val();
                 self.uiNewThingBox.val("");
                 self.topics.push(text);
                 self.createButtons();
-            });          
+            });
         },
 
         createButtons: function () {
@@ -83,7 +85,7 @@ $(document).ready(function () {
             }, this);
         },
 
-        imgConstructor: function(stillUrl, animUrl, rating){
+        imgConstructor: function (stillUrl, animUrl, rating) {
             var img = $("<img>")
                 .attr("src", stillUrl)
                 .attr("data-src-still", stillUrl)
@@ -92,7 +94,7 @@ $(document).ready(function () {
                 .addClass("result-image card-image-top img-fluid");
 
             var rating = $("<div>").addClass("card-header").text("Rating: " + rating.toUpperCase());
-            
+
             var card = $("<div>").addClass("card my-1 align-top");
             card.append(rating).append(img);
 
